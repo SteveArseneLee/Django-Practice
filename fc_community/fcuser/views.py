@@ -25,6 +25,7 @@ def login(request):
         # 유효성 검사
         if form.is_valid():
             # session
+            request.session['user'] = form.user_id
             return redirect('/')
     else:
         form = LoginForm()
