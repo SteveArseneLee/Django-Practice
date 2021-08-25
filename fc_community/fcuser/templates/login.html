@@ -21,6 +21,9 @@
                 <input type="{{ field.field.widget.input_type }}" class="form-control" id="{{ field.id_for_label }}" 
                 placeholder="{{ field.label }}" name="{{ field.name }}" />
             </div>
+            {% if field.errors %}
+            <span style="color: red;">{{ field.errors }}</span>
+            {% endif %}
             {% endfor %}
             <!-- {% comment %} -->
             <!-- <div class="form-group">

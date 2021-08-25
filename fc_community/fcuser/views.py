@@ -20,7 +20,14 @@ def logout(request):
     return redirect('/')
 
 def login(request):
-    form = LoginForm()
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        # 유효성 검사
+        if form.is_valid():
+            # session
+            return redirect('/')
+    else:
+        form = LoginForm()
     return render(request, 'login.html', {'form':form})
     
     # if request.method == 'GET':
